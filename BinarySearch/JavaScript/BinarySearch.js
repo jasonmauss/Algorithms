@@ -6,10 +6,16 @@ const binarySearch = (inputValuesArray, valueToFind) => {
     while(leftPosition <= rightPosition) {
         let middlePosition = Math.floor((leftPosition + rightPosition) / 2);
 
-        
+        if(inputValuesArray[middlePosition] < valueToFind) {
+            leftPosition = ++middlePosition;
+        } else if (inputValuesArray[middlePosition] > valueToFind) {
+            rightPosition = --middlePosition;
+        } else {
+            return middlePosition;
+        }
     }
     
-
+    return -1;
 
 };
 
