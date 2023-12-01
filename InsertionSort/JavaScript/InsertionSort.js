@@ -3,13 +3,13 @@ const InsertionSort = (unsortedArray) => {
 
     let i = 1;
     while(i < unsortedArray.length) {
-        let j = i;
-        while(j > 0 && unsortedArray[j - 1] > unsortedArray[j]) {
-            let temp = unsortedArray[j];
-            unsortedArray[j] = unsortedArray[j - 1];
-            unsortedArray[j - 1] = temp;
+        let temp = unsortedArray[i];
+        let j = i - 1;
+        while(j >= 0 && unsortedArray[j] > temp) {
+            unsortedArray[j + 1] = unsortedArray[j];
             --j;
         }
+        unsortedArray[j + 1] = temp;
         i++;
     }
 };
